@@ -90,7 +90,7 @@ Compile using XC8
 Connect PICkit
 
 Program .hex file via MPLAB X
-
+```bash
 📁 Project Structure | هيكل المشروع
 PIC_MCU/
 ├── disinfection_dispenser.X
@@ -99,6 +99,7 @@ PIC_MCU/
 │   ├── nbproject/ # MPLAB config
 │   └── Makefile
 └── README.md
+```
 🧪 Usage | طريقة الاستخدام
 Power on the circuit
 
