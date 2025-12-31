@@ -73,6 +73,7 @@ The system detects a user's hand via a sensor and activates a pump or solenoid f
 
 ```bash
 git clone https://github.com/Abdelrahman-Elnahrawy/PIC_MCU.git
+```
 Open MPLAB X
 
 File → Open Project
