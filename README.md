@@ -1,36 +1,50 @@
-# PIC_MCU – Disinfection Dispenser
+# PIC_MCU – Automatic Disinfection Dispenser (PIC12F675)
 
-![PIC](https://img.shields.io/badge/MCU-PIC-blue)
-![XC8](https://img.shields.io/badge/Compiler-XC8-orange)
-![MPLAB](https://img.shields.io/badge/IDE-MPLAB%20X-purple)
+![MCU](https://img.shields.io/badge/MCU-PIC12F675-blue)
+![Compiler](https://img.shields.io/badge/Compiler-XC8-orange)
+![IDE](https://img.shields.io/badge/IDE-MPLAB%20X-purple)
+![Language](https://img.shields.io/badge/Language-Embedded%20C-lightgrey)
 ![License](https://img.shields.io/badge/License-MIT-green)
-![Language](https://img.shields.io/badge/Language-C-lightgrey)
 
 ---
 
 ## 📌 Overview | نظرة عامة
 
-**PIC_MCU** is a microcontroller-based **Automatic Disinfection Dispenser** project implemented using **Microchip PIC MCUs**.  
-The system detects a user's hand using a sensor and activates a pump or valve to dispense disinfectant automatically.
+This project implements an **Automatic Disinfection Dispenser** using the **PIC12F675** microcontroller.  
+The system detects a user's hand via a sensor and activates a pump or solenoid for a fixed duration to dispense disinfectant.
 
-مشروع **PIC_MCU** هو نظام موزع تعقيم أوتوماتيكي باستخدام متحكمات **PIC**.  
-يعتمد على مستشعر لاكتشاف اليد وتشغيل مضخة أو صمام لتوزيع المطهر تلقائيًا.
+مشروع **موزع تعقيم أوتوماتيكي** باستخدام المتحكم **PIC12F675**.  
+يقوم النظام باكتشاف اليد عن طريق مستشعر ثم تشغيل مضخة أو صمام لفترة زمنية محددة.
 
 ---
 
 ## ⭐ Features | المميزات
 
-- Automatic hand detection  
-- Timed liquid dispensing  
-- Status LED indicators  
-- Simple & low-cost hardware design  
+- Uses **PIC12F675 (8-pin MCU)**
+- Automatic hand detection
+- Timed pump activation
+- LED status indication
+- Minimal hardware & low cost
 - Written in Embedded C (XC8)
 
-- كشف تلقائي لليد  
-- تحكم زمني في ضخ السائل  
-- مؤشرات LED للحالة  
-- تصميم اقتصادي وبسيط  
-- مكتوب بلغة Embedded C
+- استخدام المتحكم PIC12F675 (8 أرجل)
+- كشف تلقائي لليد
+- تحكم زمني في تشغيل المضخة
+- مؤشرات LED للحالة
+- مكونات قليلة وتكلفة منخفضة
+
+---
+
+## 🧠 MCU Details | مواصفات المتحكم
+
+| Feature | Value |
+|------|------|
+| MCU | PIC12F675 |
+| Flash | 1K words |
+| RAM | 64 bytes |
+| ADC | 10-bit (4 channels) |
+| Oscillator | Internal 4 MHz |
+| Package | 8-Pin DIP / SOIC |
 
 ---
 
@@ -38,11 +52,12 @@ The system detects a user's hand using a sensor and activates a pump or valve to
 
 | Component | الوصف |
 |---------|------|
-| PIC MCU | PIC16 / PIC18 family |
+| PIC12F675 | المتحكم الرئيسي |
 | IR / Proximity Sensor | مستشعر كشف اليد |
-| DC Pump / Solenoid | مضخة أو صمام |
-| Power Supply | مصدر طاقة مناسب |
-| LEDs + Resistors | لمؤشرات الحالة |
+| DC Pump / Solenoid Valve | مضخة أو صمام |
+| Transistor / Relay | دائرة تشغيل الحمل |
+| LED + Resistor | مؤشر حالة |
+| Power Supply | 5V أو حسب التصميم |
 
 ---
 
@@ -50,7 +65,7 @@ The system detects a user's hand using a sensor and activates a pump or valve to
 
 - **MPLAB X IDE**
 - **XC8 Compiler**
-- PICkit / ICD Programmer
+- PICkit 2 / PICkit 3 / PICkit 4
 
 ---
 
@@ -64,50 +79,52 @@ File → Open Project
 
 Select disinfection_dispenser.X
 
-Configure the target PIC device
+Set device to PIC12F675
 
-Build & Program
+Build and program
 
 ⚙️ Build & Flashing | البرمجة ورفع الكود
-Build project using XC8
+Compile using XC8
 
 Connect PICkit
 
-Flash .hex file using MPLAB X
+Program .hex file via MPLAB X
 
 📁 Project Structure | هيكل المشروع
-makefile
-Copy code
 PIC_MCU/
 ├── disinfection_dispenser.X
 │   ├── src/        # Source files
 │   ├── include/    # Header files
-│   ├── Makefile
-│   └── config bits
-├── docs/           # Diagrams / Images (optional)
+│   ├── nbproject/ # MPLAB config
+│   └── Makefile
 └── README.md
 🧪 Usage | طريقة الاستخدام
-Power on the system
+Power on the circuit
 
 Place hand near the sensor
 
-Pump activates automatically
+Output pin goes HIGH
 
-Disinfectant is dispensed
+Pump dispenses disinfectant
 
 🔧 Possible Improvements | تطويرات مستقبلية
-Adjustable delay via potentiometer
+Adjustable dispense time using ADC
 
-EEPROM configuration storage
+Sleep mode for power saving
 
-Low-power sleep mode
+EEPROM-based configuration
 
-Enclosure + PCB design
+PCB design and enclosure
 
 👤 Author | المؤلف
 Abdelrahman Elnahrawy
+Embedded Systems Engineer
 
 📜 License
 MIT License
+
+Copyright (c) 2025 Abdelrahman Elnahrawy
+
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files...
+
