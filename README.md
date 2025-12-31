@@ -1,123 +1,113 @@
-# PIC_MCU — Disinfection Dispenser
+# PIC_MCU – Disinfection Dispenser
 
-A microcontroller-based automatic **Disinfection Dispenser** project built using **Microchip PIC** (MPLAB X / XC8 toolchain).  
-This repository contains the PIC MCU firmware and related build files for controlling a dispenser system.
-
-## 🧾 Table of Contents
-
-- [Overview](#overview)  
-- [Features](#features)  
-- [Hardware Requirements](#hardware-requirements)  
-- [Software Requirements](#software-requirements)  
-- [Getting Started](#getting-started)  
-- [Build & Flashing](#build--flashing)  
-- [Project Structure](#project-structure)  
-- [Usage](#usage)  
-- [Contributing](#contributing)  
-- [License](#license)
+![PIC](https://img.shields.io/badge/MCU-PIC-blue)
+![XC8](https://img.shields.io/badge/Compiler-XC8-orange)
+![MPLAB](https://img.shields.io/badge/IDE-MPLAB%20X-purple)
+![License](https://img.shields.io/badge/License-MIT-green)
+![Language](https://img.shields.io/badge/Language-C-lightgrey)
 
 ---
 
-## 📌 Overview
+## 📌 Overview | نظرة عامة
 
-This project implements firmware for an automatic disinfection dispenser using a **PIC microcontroller**.  
-It reads sensor input (e.g., proximity or IR sensor), drives a pump or valve, and handles timing logic to dispense liquid sanitizer based on user presence.
+**PIC_MCU** is a microcontroller-based **Automatic Disinfection Dispenser** project implemented using **Microchip PIC MCUs**.  
+The system detects a user's hand using a sensor and activates a pump or valve to dispense disinfectant automatically.
 
----
-
-## ⭐ Features
-
-✔️ Automatic dispensing based on sensor input  
-✔️ Adjustable timing between dispensations  
-✔️ Status LED indicators  
-✔️ Efficient code with low power usage  
-
-*(Modify the list above according to your actual features.)*
+مشروع **PIC_MCU** هو نظام موزع تعقيم أوتوماتيكي باستخدام متحكمات **PIC**.  
+يعتمد على مستشعر لاكتشاف اليد وتشغيل مضخة أو صمام لتوزيع المطهر تلقائيًا.
 
 ---
 
-## 🧰 Hardware Requirements
+## ⭐ Features | المميزات
 
-You will need:
+- Automatic hand detection  
+- Timed liquid dispensing  
+- Status LED indicators  
+- Simple & low-cost hardware design  
+- Written in Embedded C (XC8)
 
-| Component | Description |
-|-----------|-------------|
-| PIC Microcontroller | (e.g., PIC16F877A, PIC18F4550, …) |
-| Proximity/IR/Ultrasonic Sensor | Detects a user’s hand |
-| Pump / Solenoid Valve | Dispenses disinfectant |
-| Power Supply | Suitable for PIC and motor |
-| LEDs/Resistors | Status indications |
-| PCB/Prototype board | For assembly |
-
-*(Adjust based on your exact design.)*
+- كشف تلقائي لليد  
+- تحكم زمني في ضخ السائل  
+- مؤشرات LED للحالة  
+- تصميم اقتصادي وبسيط  
+- مكتوب بلغة Embedded C
 
 ---
 
-## 🛠 Software Requirements
+## 🧰 Hardware Requirements | المتطلبات الهاردوير
 
-To build and flash the firmware:
+| Component | الوصف |
+|---------|------|
+| PIC MCU | PIC16 / PIC18 family |
+| IR / Proximity Sensor | مستشعر كشف اليد |
+| DC Pump / Solenoid | مضخة أو صمام |
+| Power Supply | مصدر طاقة مناسب |
+| LEDs + Resistors | لمؤشرات الحالة |
+
+---
+
+## 🛠 Software Requirements | المتطلبات البرمجية
 
 - **MPLAB X IDE**
 - **XC8 Compiler**
-- PIC Programmer (e.g., PICkit / ICD)
+- PICkit / ICD Programmer
 
 ---
 
-## 🚀 Getting Started
+## 🚀 Getting Started | البدء
 
-1. Clone repository:
-   ```sh
-   git clone https://github.com/Abdelrahman-Elnahrawy/PIC_MCU.git
-Open the project in MPLAB X:
+```bash
+git clone https://github.com/Abdelrahman-Elnahrawy/PIC_MCU.git
+Open MPLAB X
 
-sh
-Copy code
-File → Open Project → select disinfection_dispenser.X
-Configure configuration bits for your PIC part.
+File → Open Project
 
-⚙️ Build & Flashing
-Build the project in MPLAB X (Run → Build Project).
+Select disinfection_dispenser.X
 
-Connect your PIC programmer.
+Configure the target PIC device
 
-Flash the generated .hex file to your microcontroller:
+Build & Program
 
-MPLAB X: Run → Program
+⚙️ Build & Flashing | البرمجة ورفع الكود
+Build project using XC8
 
-📁 Project Structure
+Connect PICkit
+
+Flash .hex file using MPLAB X
+
+📁 Project Structure | هيكل المشروع
 makefile
 Copy code
 PIC_MCU/
-├── disinfection_dispenser.X   # MPLAB X project
-│   ├── src/                   # C source files
-│   ├── include/               # Header files
-│   ├── xc*.lkr                # Linker scripts
-│   └── Makefile               # Build configuration
-└── README.md                  # Project overview
-(Adjust according to your actual folder layout.)
+├── disinfection_dispenser.X
+│   ├── src/        # Source files
+│   ├── include/    # Header files
+│   ├── Makefile
+│   └── config bits
+├── docs/           # Diagrams / Images (optional)
+└── README.md
+🧪 Usage | طريقة الاستخدام
+Power on the system
 
-📌 Usage
-Once the firmware is flashed:
+Place hand near the sensor
 
-Power the system.
+Pump activates automatically
 
-Place your hand under the dispenser.
+Disinfectant is dispensed
 
-The sensor triggers the pump/valve.
+🔧 Possible Improvements | تطويرات مستقبلية
+Adjustable delay via potentiometer
 
-Sanitizer is dispensed automatically.
+EEPROM configuration storage
 
-📢 Contributing
-Feel free to open issues or submit pull requests to improve:
+Low-power sleep mode
 
-Sensor calibration
+Enclosure + PCB design
 
-Feature enhancements
-
-Code structure and modularity
+👤 Author | المؤلف
+Abdelrahman Elnahrawy
 
 📜 License
-This project is licensed under the MIT License — see the LICENSE file for details.
-
-
-
+MIT License
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files...
